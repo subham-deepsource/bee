@@ -67,7 +67,7 @@ func (s *server) bytesUploadHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	p := requestPipelineFn(putter, r)
+	p := requestPipelineFn(putter, s.pushSyncer, r)
 	address, err := p(ctx, r.Body)
 	if err != nil {
 		logger.Debugf("bytes upload: split write all: %v", err)
