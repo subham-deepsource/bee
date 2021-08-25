@@ -109,7 +109,7 @@ No developers or entity involved will be liable for any claims and damages assoc
 inability to use, or your interaction with other nodes or the software.`)
 
 			fmt.Printf("\n\nversion: %v - planned to be supported until %v, please follow https://ethswarm.org/\n\n", bee.Version, endSupportDate())
-			runtime.MemProfileRate = 1
+			runtime.MemProfileRate = 128
 			_ = pprof.Lookup("allocs")
 			debugAPIAddr := c.config.GetString(optionNameDebugAPIAddr)
 			if !c.config.GetBool(optionNameDebugAPIEnable) {
