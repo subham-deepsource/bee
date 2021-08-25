@@ -32,6 +32,7 @@ import (
 	"github.com/ethersphere/bee/pkg/node"
 	"github.com/ethersphere/bee/pkg/resolver/multiresolver"
 	"github.com/kardianos/service"
+	"github.com/pkg/profile"
 	"github.com/spf13/cobra"
 )
 
@@ -107,6 +108,7 @@ No developers or entity involved will be liable for any claims and damages assoc
 inability to use, or your interaction with other nodes or the software.`)
 
 			fmt.Printf("\n\nversion: %v - planned to be supported until %v, please follow https://ethswarm.org/\n\n", bee.Version, endSupportDate())
+			defer profile.Start(profile.MemProfileAllocs).Stop()
 
 			debugAPIAddr := c.config.GetString(optionNameDebugAPIAddr)
 			if !c.config.GetBool(optionNameDebugAPIEnable) {
