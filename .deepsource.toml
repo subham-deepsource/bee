@@ -8,11 +8,3 @@ enabled = true
 
   [analyzers.meta]
   import_path = "github.com/ethersphere/bee"
-
-[[analyzers]]
-name = "test-coverage"
-enabled = true
-
-[[analyzers]]
-name = "docker"
-enabled = true
